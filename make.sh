@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+#set -e
 
 me="matt"
 
@@ -56,6 +56,7 @@ install_maim() {
 
 install_xinitrc() {
     cp xinitrc /home/$me/.xinitrc
+    cp Xresources /home/$me/.Xresources
 }
 
 install_screenlayout() {
@@ -92,7 +93,7 @@ ensure_packages() {
         exit 1
     fi
 
-    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} feh wezterm ofi arandr xorg xorg-xinit glm xclip git
+    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} feh wezterm rofi arandr xorg xorg-xinit glm xclip git cmake maim glm
     touch /home/$me/.suckless_pkgs
 }
 
@@ -104,7 +105,7 @@ install_backlight() {
     [[ ! -d /home/$me/.local/bin ]] && mkdir /home/$me/.local/bin
 	cp backlight.py /home/$me/.local/bin/.
 	cp bl*.sh /home/$me/.local/bin/.
-	echo "make sure that you have passwordless sudo for /home/$me/.local/bin/backlight.py"	
+	echo "make sure that you have passwordless sudo for /home/$me/.local/bin/backlight.py"
 }
 
 ############################################################
@@ -122,7 +123,3 @@ install_backlight
 install_screenlayout
 setup_wallpaper
 fix_perms
-
-# for building stuff
-#libXinerama
-#glew
