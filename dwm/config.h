@@ -28,6 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "discord",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "mattermost-desktop",  NULL,       NULL,       1 << 7,       0,-1 },
 //	{ "Slack",    NULL,       NULL,       1 << 7,       0,           -1 },
 //	{ "this",     NULL,       NULL,       1 << 8,       0,           -1 },
 };
@@ -63,7 +64,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 
 static const char *dmenucmd[] = { "./.config/rofi/launchers/type-6/launcher.sh", NULL };
 
-static const char *termcmd[]  = { "wezterm", NULL };
+static const char *termcmd[]  = { "ghostty", NULL };
 
 static const char *maimcmd[] = { "./.local/bin/screenshot.sh", NULL };
 

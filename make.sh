@@ -93,7 +93,7 @@ ensure_packages() {
         exit 1
     fi
 
-    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} feh wezterm rofi arandr xorg xorg-xinit glm xclip git cmake maim glm
+    [[ ! "$mgr" == "skip" ]] && sudo ${mgr} feh ghostty rofi arandr xorg xorg-xinit glm xclip git cmake maim glm
     touch /home/$me/.suckless_pkgs
 }
 
