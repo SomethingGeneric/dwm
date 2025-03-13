@@ -1,6 +1,7 @@
 slstatus &
 
 discord &
+mattermost-desktop &
 # slack &
 
 feh --bg-scale .wallpaper.jpg &

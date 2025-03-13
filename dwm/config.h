@@ -28,7 +28,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "discord",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "mattermost-desktop",  NULL,       NULL,       1 << 7,       0,-1 },
+	{ NULL,       NULL,       "Mattermost Desktop App",       1 << 7,       0,-1 },
 //	{ "Slack",    NULL,       NULL,       1 << 7,       0,           -1 },
 //	{ "this",     NULL,       NULL,       1 << 8,       0,           -1 },
 };

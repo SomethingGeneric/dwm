@@ -26,6 +26,15 @@ install_slstatus() {
     rm -rf slstatus
 }
 
+install_slock() {
+	git clone https://github.com/LordRusk/slock.git
+	cp slock.config.h slock/config.h
+	pushd slock
+	sudo make install clean
+	popd
+	rm -rf slock
+}
+
 install_rofi_configs() {
     git clone --depth=1 https://github.com/adi1090x/rofi.git
 	pushd rofi
@@ -34,24 +43,6 @@ install_rofi_configs() {
 	sed -i "s/'style-1'/'style-4'/g" /home/$me/.config/rofi/launchers/type-6/launcher.sh
 	popd
     rm -rf rofi
-}
-
-install_maim() {
-    [[ -d slop ]] && rm -rf slop
-    git clone https://github.com/naelstrof/slop.git
-    cd slop
-    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/usr" ./
-    make && sudo make install
-    cd ..
-    git clone https://github.com/naelstrof/maim.git
-    cd maim
-    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/usr" ./
-    make && sudo make install
-    cd ..
-    rm -rf {slop,maim}
-
-    [[ ! -d /home/$me/.local/bin ]] && mkdir /home/$me/.local/bin
-    cp screenshot.sh /home/$me/.local/bin/.
 }
 
 install_xinitrc() {
@@ -115,10 +106,10 @@ if [[ ! -f /home/$me/.suckless_pkgs ]]; then
 fi
 
 install_dwm
+install_slock
 install_slstatus
 install_rofi_configs
 install_xinitrc
-install_maim
 install_backlight
 install_screenlayout
 setup_wallpaper
